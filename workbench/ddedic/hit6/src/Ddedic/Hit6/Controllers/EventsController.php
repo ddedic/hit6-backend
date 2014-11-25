@@ -281,12 +281,11 @@ class EventsController extends \Controller {
     function last($limit = 15)
     {
 
-        $last = $this->events->limit(50)->orderBy('created_at', 'desc')->get();
+        $last_events = $this->events->select(['id', 'combined', 'sorted', 'created_at'])->limit(50)->orderBy('created_at', 'desc')->get();
         //\Debugbar::info($d->toArray());
 
 
-        var_dump($last->toJson());
-
+        return \View::make('hit6::last', $data = ['last_events' => $last_events]);
 
 
 

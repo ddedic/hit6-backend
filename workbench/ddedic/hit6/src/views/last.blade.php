@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HIT 6 Bingo - Homemade</title>
+<title>Hut 6 - Bingo - Last events</title>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -16,13 +16,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-{{ HTML::script('js/demo.js'); }}
+
 {{ HTML::style('css/demo.css'); }}
-
-
-<script type="text/javascript">
-    var EVENT_NUMBERS = '{{ $balls  }}';
-</script>
 
 
 </head>
@@ -31,23 +26,19 @@
 <div class="row">
 
     <div class="col-md-12 main-container" style="padding-top:50px;">
-        <div class="col-md-5">
+        <div class="col-md-offset-1 col-md-11">
+            <h1 class="header">Last {{ count($last_events) }} events</h1>
 
-            <div class="huge-num-container">
-                <h1 id="current-number">:)</h1>
-            </div>
-
-        </div>
-
-        <div class="col-md-7">
-
-            <div class="drawn-numbers">
-
-                <ul class="drawn-list">
-
-                 </ul>
-
-            </div>
+            <ul class="last-events">
+                @foreach ($last_events as $event)
+                <li>
+                    <span style="font-weight: bold">{{ $event->created_at->diffForHumans() }}</span>
+                    <span style="display: block">{{ $event->combined }}</span>
+                    <span style="display: block">{{ $event->sorted }}</span>
+                    <hr />
+                </li>
+                @endforeach
+            </ul>
 
         </div>
     </div>
