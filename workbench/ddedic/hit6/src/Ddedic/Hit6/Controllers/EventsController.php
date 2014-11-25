@@ -228,4 +228,70 @@ class EventsController extends \Controller {
 
     }
 
+
+
+
+    function start()
+    {
+
+
+        $balls = $this->generator->generateBalls($this->balls);
+
+        $sorted = array_values(array_sort($balls, function($value)
+        {
+            return (int) $value;
+        }));
+
+        $dt = Carbon::now();
+
+        $data = array_merge([
+            'shop_id'   =>  1,
+            'week'      =>  $dt->weekOfYear,
+            'day'       =>  $dt->dayOfWeek,
+            'event_raw' =>  0,
+            'combined'  =>  json_encode(array_values($balls)),
+            'sorted'    =>  json_encode($sorted)
+        ], $balls);
+
+
+        \Debugbar::info(array_values($balls));
+        \Debugbar::info($sorted);
+
+        $event = $this->events->newInstance();
+        $event->fill($data);
+
+
+        if ( ! $event->save())
+        {
+            return \Response::json($event->getErrors());
+        }
+
+
+
+
+
+        // VIEW
+
+        $ballsToShow = json_encode(array_values($balls));
+
+        return \View::make('hit6::demo', $data = ['balls' => $ballsToShow]);
+    }
+
+
+    function last($limit = 15)
+    {
+
+        $last = $this->events->limit(50)->orderBy('created_at', 'desc')->get();
+        //\Debugbar::info($d->toArray());
+
+
+        var_dump($last->toJson());
+
+
+
+
+    }
+
+
+
 } 

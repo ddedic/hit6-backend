@@ -80,7 +80,8 @@ Route::get('errortest', 'Ddedic\Hit6\Controllers\EventsController@errortest');
 
 
 
-Route::get('/', 'Ddedic\Hit6\Controllers\EventsController@demo');
+Route::get('/', 'Ddedic\Hit6\Controllers\EventsController@start');
+Route::get('last', 'Ddedic\Hit6\Controllers\EventsController@last');
 Route::get('/demo/my', 'Ddedic\Hit6\Controllers\EventsController@demo_my');
 
 
