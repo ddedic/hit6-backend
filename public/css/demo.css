@@ -1,0 +1,63 @@
+.huge-num-container {
+	background-color: #ededed;
+	text-align: center;
+	height: 380px;
+	border: 5px solid #126797;
+	margin-left: 50px;
+}
+
+.huge-num-container h1{
+	padding-top: 0px;
+	font-size: 250px;
+}
+
+
+.drawn-numbers {
+	display: block;
+	min-height: 800px;
+}
+
+
+ul.drawn-list {
+	display: block;	
+}
+
+ul.drawn-list li {
+	display: block;
+	float: left;
+	background-color: #2ca9f0;
+	width:  120px;
+	height:  120px;
+	
+	margin-right: 20px;
+	margin-bottom: 20px;
+	
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+}
+
+
+ul.drawn-list li span.num {
+	display: block;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 20px;
+}
+
+ul.drawn-list li.dark {
+	background-color: #126797;
+	color: #fff;
+}
+
+
+ul.drawn-list li span.value {
+	display: block;
+	font-size: 18px;
+	color: #fff;
+
+
+	margin-top: 0px;
+	text-align: center;
+}

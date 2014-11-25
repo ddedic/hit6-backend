@@ -1,0 +1,24 @@
+{
+    "name": "ddedic/hit6",
+    "description": "",
+    "authors": [
+        {
+            "name": "Danijel Dedic",
+            "email": "dedic.d@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "watson/validating": "0.10.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Ddedic\\Hit6\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
