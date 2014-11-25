@@ -1,18 +1,15 @@
 <?php
-namespace Ddedic\Hit6\Models;
+namespace Ddedic\Hit6\Events\Models;
 
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
-use Ddedic\Hit6\Interfaces\EventInterface;
-use Watson\Validating\ValidatingTrait;
+use Ddedic\Hit6\Support\Models\BaseModel;
 
 
 /**
  * Class Event
  */
-class Event extends Eloquent implements EventInterface
+class Event extends BaseModel
 {
-    use ValidatingTrait;
 
     protected $rules = [
         'day'       => 'required',
@@ -42,12 +39,12 @@ class Event extends Eloquent implements EventInterface
 
     public function bets()
     {
-        return $this->hasMany('Ddedic\Hit6\Models\Bet');
+        return $this->hasMany('Ddedic\Hit6\Bets\Models\Bet');
     }
 
     public function shop()
     {
-        return $this->belongsTo('Ddedic\Hit6\Models\Shop');
+        return $this->belongsTo('Ddedic\Hit6\Shops\Models\Shop');
     }
 
 

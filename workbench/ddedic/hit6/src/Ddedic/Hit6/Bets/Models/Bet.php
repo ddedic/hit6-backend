@@ -1,14 +1,15 @@
 <?php
-namespace Ddedic\Hit6\Models;
+namespace Ddedic\Hit6\Bets\Models;
 
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Ddedic\Hit6\Support\Models\BaseModel;
 
 
 /**
  * Class Bet
  */
-class Bet extends Eloquent implements BetInterface
+class Bet extends BaseModel
 {
     protected $table = 'bets';
 
@@ -18,8 +19,11 @@ class Bet extends Eloquent implements BetInterface
 
     public function event()
     {
-        return $this->belongsTo('Ddedic\Hit6\Models\Event');
+        return $this->belongsTo('Ddedic\Hit6\Events\Models\Event');
     }
+
+
+
 
 
 }

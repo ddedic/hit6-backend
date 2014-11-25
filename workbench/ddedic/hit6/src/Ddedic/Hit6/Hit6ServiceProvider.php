@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 
 
@@ -51,11 +52,13 @@ class Hit6ServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
-        $this->app->singleton('Ddedic\Hit6\Interfaces\BallInterface', 'Ddedic\Hit6\Models\Ball');
-        $this->app->singleton('Ddedic\Hit6\Interfaces\BetInterface', 'Ddedic\Hit6\Models\Bet');
-        $this->app->singleton('Ddedic\Hit6\Interfaces\CityInterface', 'Ddedic\Hit6\Models\City');
-        $this->app->singleton('Ddedic\Hit6\Interfaces\EventInterface', 'Ddedic\Hit6\Models\Event');
-        $this->app->singleton('Ddedic\Hit6\Interfaces\ShopInterface', 'Ddedic\Hit6\Models\Shop');
+
+        $this->registerCities();
+        $this->registerShops();
+        $this->registerBalls();
+        $this->registerEvents();
+        $this->registerBets();
+
 
         $this->app->singleton('Ddedic\Hit6\Interfaces\BallGeneratorInterface', 'Ddedic\Hit6\Generators\MtRandBallGenerator');
 
@@ -66,9 +69,65 @@ class Hit6ServiceProvider extends ServiceProvider {
 
 
 
+    private function registerBalls()
+    {
+        $app = $this->app;
 
+        $app->bind('Ddedic\Hit6\Balls\Interfaces\BallInterface', function (Application $app) {
+            $repository = new Balls\Repositories\BallRepository(new Balls\Models\Ball);
 
+                //@todo Implement Cache
+                return $repository;
+        });
+    }
 
+    private function registerBets()
+    {
+        $app = $this->app;
+
+        $app->bind('Ddedic\Hit6\Bets\Interfaces\BetInterface', function (Application $app) {
+            $repository = new Bets\Repositories\BetRepository(new Bets\Models\Bet);
+
+            //@todo Implement Cache
+            return $repository;
+        });
+    }
+
+    private function registerCities()
+    {
+        $app = $this->app;
+
+        $app->bind('Ddedic\Hit6\Cities\Interfaces\CityInterface', function (Application $app) {
+            $repository = new Cities\Repositories\CityRepository(new Cities\Models\City);
+
+            //@todo Implement Cache
+            return $repository;
+        });
+    }
+
+    private function registerShops()
+    {
+        $app = $this->app;
+
+        $app->bind('Ddedic\Hit6\Shops\Interfaces\ShopInterface', function (Application $app) {
+            $repository = new Shops\Repositories\ShopRepository(new Shops\Models\Shop);
+
+            //@todo Implement Cache
+            return $repository;
+        });
+    }
+
+    private function registerEvents()
+    {
+        $app = $this->app;
+
+        $app->bind('Ddedic\Hit6\Events\Interfaces\EventInterface', function (Application $app) {
+            $repository = new Events\Repositories\EventRepository(new Events\Models\Event);
+
+            //@todo Implement Cache
+            return $repository;
+        });
+    }
 
 
     public function bootCommands()
@@ -93,10 +152,6 @@ class Hit6ServiceProvider extends ServiceProvider {
         // Now register all the commands
         $this->commands('hit6.commands.install', 'hit6.commands.reinstall', 'hit6.commands.uninstall');
     }
-
-
-
-
 
 
     /**

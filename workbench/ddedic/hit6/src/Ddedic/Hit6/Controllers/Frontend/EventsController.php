@@ -6,16 +6,19 @@
  * Time: 21:12
  */
 
-namespace Ddedic\Hit6\Controllers;
+namespace Ddedic\Hit6\Controllers\Frontend;
 
-use Ddedic\Hit6\Interfaces\BallGeneratorInterface;
-use Ddedic\Hit6\Interfaces\EventInterface;
-use Ddedic\Hit6\Interfaces\BallInterface;
+use Ddedic\Hit6\Balls\Interfaces\BallInterface;
+use Ddedic\Hit6\Events\Interfaces\EventInterface;
+
+use Ddedic\Hit6\Generators\Interfaces\BallGeneratorInterface;
+
+use Ddedic\Hit6\Support\Controllers\FrontendController;
 use Carbon\Carbon;
 
 
 
-class EventsController extends \Controller {
+class EventsController extends FrontendController {
 
     protected $generator;
     protected $events;
@@ -29,6 +32,11 @@ class EventsController extends \Controller {
         $this->balls = $ball;
     }
 
+
+    public function index()
+    {
+        echo 'ok';
+    }
 
 
 
@@ -234,15 +242,14 @@ class EventsController extends \Controller {
     function start()
     {
 
-
+        $dt = Carbon::now();
         $balls = $this->generator->generateBalls($this->balls);
-
         $sorted = array_values(array_sort($balls, function($value)
         {
             return (int) $value;
         }));
 
-        $dt = Carbon::now();
+
 
         $data = array_merge([
             'shop_id'   =>  1,

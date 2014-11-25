@@ -6,9 +6,11 @@
  * Time: 19:35
  */
 
-namespace Ddedic\Hit6\Interfaces;
+namespace Ddedic\Hit6\Cities\Interfaces;
 
 
 interface CityInterface {
+
+    public function getCities();
 
 } 

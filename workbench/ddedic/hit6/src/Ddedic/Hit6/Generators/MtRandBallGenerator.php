@@ -51,7 +51,7 @@ class MtRandBallGenerator extends AbstractBallGenerator implements BallGenerator
         //dd($generated);
 
         foreach ($generated as $key => $value) {
-            array_push($randomizedBalls, ['id' => $ballsdata[$value - 1]]);
+            array_push($randomizedBalls, $ballsdata[$value - 1]);
         }
 
 

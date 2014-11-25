@@ -1,41 +1,101 @@
 <?php
 
-
-use Ddedic\Hit6\Models\City;
-use Ddedic\Hit6\Models\Event;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Response;
+
+
+// TEST
+Route::group(['prefix' => 'test'], function () {
+
+    $balls = App::make('Ddedic\Hit6\Balls\Interfaces\BallInterface');
+    $bets = App::make('Ddedic\Hit6\Bets\Interfaces\BetInterface');
+    $cities = App::make('Ddedic\Hit6\Cities\Interfaces\CityInterface');
+    $events = App::make('Ddedic\Hit6\Events\Interfaces\EventInterface');
+    $shops = App::make('Ddedic\Hit6\Shops\Interfaces\ShopInterface');
 
 
 
-Route::get('shops', function() {
-
-    $d = City::with('shops')->first();
-    Debugbar::info($d->toArray());
 
 
-    echo 'Shops Route';
+    // BALLS
+    Route::get('balls', function () use ($balls) {
+
+        $data = $balls->getBalls();
+
+        return Response::json($data);
+
+    });
+
+
+    // BETS
+    Route::get('bets', function () use ($bets) {
+
+        $data = $bets->getBets();
+
+        return Response::json($data);
+
+    });
+
+
+    // CITIES
+    Route::get('cities', function () use ($cities) {
+
+        $data = $cities->getModel()->all();
+
+        return Response::json($data);
+
+    });
+
+
+    // EVENTS
+    Route::get('events', function () use ($events) {
+
+        $data = $events->getEvents();
+
+        return Response::json($data);
+
+    });
+
+
+    // SHOPS
+    Route::get('shops', function () use ($shops) {
+
+        $data = $shops->getShops();
+
+        return Response::json($data);
+
+    });
+
+
 });
 
 
-Route::get('events', function () {
 
-    $d = Event::take(50)->get();
-    Debugbar::info($d->toArray());
+// FRONTEND
+Route::group(['prefix' => 'events'], function () {
+
+    Route::get('/', array('uses' => 'Ddedic\Hit6\Controllers\Frontend\EventsController@index', 'as' => 'frontend.events.index'));
 
 
-    echo $d;
 });
 
 
-Route::get('carbon', function () {
 
 
-    $dt = Carbon::now();
 
-    dd( $dt->weekOfYear);
 
-});
 
+
+
+
+
+
+
+
+
+
+
+// OLD SHIT -------------------------------------------------------------------
 
 Route::get('mtrand', function () {
 
@@ -70,6 +130,7 @@ Route::get('mtrand', function () {
 // --------------------
 // EVENTS -------------
 
+/*
 Route::post('events', 'Ddedic\Hit6\Controllers\EventsController@create');
 Route::get('events/generate', 'Ddedic\Hit6\Controllers\EventsController@generate');
 Route::post('events/test', 'Ddedic\Hit6\Controllers\EventsController@test');
@@ -83,5 +144,5 @@ Route::get('errortest', 'Ddedic\Hit6\Controllers\EventsController@errortest');
 Route::get('/', 'Ddedic\Hit6\Controllers\EventsController@start');
 Route::get('last', 'Ddedic\Hit6\Controllers\EventsController@last');
 Route::get('/demo/my', 'Ddedic\Hit6\Controllers\EventsController@demo_my');
-
+*/
 
