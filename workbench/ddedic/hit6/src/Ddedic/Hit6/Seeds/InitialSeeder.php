@@ -47,6 +47,20 @@ class InitialSeeder extends Seeder {
                 'note'              => 'Kod Anđe',
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s')
+            ),
+            array(
+                'city_id'              => 1,
+                'name'              => 'BetLive 002',
+                'note'              => 'U Motelu',
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s')
+            ),
+            array(
+                'city_id'              => 1,
+                'name'              => 'Miami-Bet',
+                'note'              => 'Caffe Miami',
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s')
             )
         );
         DB::table('shops')->insert($data);

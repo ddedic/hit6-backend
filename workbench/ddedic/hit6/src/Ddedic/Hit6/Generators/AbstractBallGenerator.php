@@ -6,7 +6,8 @@
  * Time: 03:55
  */
 
-namespace Ddedic\Hit6\Abstracts;
+namespace Ddedic\Hit6\Generators;
+
 
 use Illuminate\Database\Eloquent\Collection;
 
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Collection;
 class AbstractBallGenerator {
 
     const POOL_SIZE = 35;
+
 
     public function formatBalls(Collection  $balls)
     {

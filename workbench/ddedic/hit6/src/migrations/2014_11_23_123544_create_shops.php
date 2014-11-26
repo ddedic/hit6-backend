@@ -18,6 +18,8 @@ class CreateShops extends Migration {
 			$table->integer('city_id');
 			$table->string('name');
 			$table->string('note');
+            $table->tinyInteger('active');
+            $table->integer('eventInterval');
 			$table->timestamps();
 		});
 	}

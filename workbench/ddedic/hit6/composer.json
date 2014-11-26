@@ -10,7 +10,8 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "4.2.*",
-        "watson/validating": "0.10.*"
+        "watson/validating": "0.10.*",
+        "dingo/api": "0.7.*@dev"
     },
     "autoload": {
         "classmap": [

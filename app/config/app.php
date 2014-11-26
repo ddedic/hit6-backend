@@ -123,7 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
         // Local
-        'Barryvdh\Debugbar\ServiceProvider',
+        //'Barryvdh\Debugbar\ServiceProvider',
 
         // Technabit
         //'Technabit\Core\CoreServiceProvider',
@@ -198,7 +198,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
         // Local
-        'Debugbar' 		  => 'Barryvdh\Debugbar\Facade',
+        //'Debugbar' 		  => 'Barryvdh\Debugbar\Facade',
 
 
 

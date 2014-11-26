@@ -23,7 +23,7 @@ class Shop extends BaseModel
 
     public function events()
     {
-        return $this->hasMany('Ddedic\Hit6\Cities\Models\Event');
+        return $this->hasMany('Ddedic\Hit6\Events\Models\Event');
     }
 
 }

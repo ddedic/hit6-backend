@@ -8,45 +8,29 @@
 
 namespace Ddedic\Hit6\Controllers\Frontend;
 
-use Ddedic\Hit6\Balls\Interfaces\BallInterface;
+use Ddedic\Hit6\Support\Controllers\FrontendController;
 use Ddedic\Hit6\Events\Interfaces\EventInterface;
 
-use Ddedic\Hit6\Generators\Interfaces\BallGeneratorInterface;
-
-use Ddedic\Hit6\Support\Controllers\FrontendController;
-use Carbon\Carbon;
-
-
+use Illuminate\Support\Facades\Response;
 
 class EventsController extends FrontendController {
 
-    protected $generator;
     protected $events;
     protected $balls;
 
 
-    public function __construct(EventInterface $event, BallInterface $ball, BallGeneratorInterface $generator)
+    public function __construct(EventInterface $event)
     {
-        $this->generator = $generator;
         $this->events = $event;
-        $this->balls = $ball;
     }
 
 
     public function index()
     {
-        echo 'ok';
+        return Response::json(['It is ok!']);
     }
 
 
-
-    public function create()
-    {
-        \Debugbar::disable();
-
-        return json_encode(['alles gut']);
-
-    }
 
 
     /**
@@ -99,20 +83,8 @@ class EventsController extends FrontendController {
     }
 
 
-    public function balls()
-    {
-        return \Response::json($balls = $this->generator->generateBalls($this->balls));
-    }
 
 
-
-
-    public function errortest()
-    {
-        echo 'ok';
-
-        \Debugbar::info($balls = $this->generator->generateBalls($this->balls));
-    }
 
 
     public function generate__($limit = 50)

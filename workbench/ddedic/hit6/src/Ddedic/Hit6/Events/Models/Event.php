@@ -34,7 +34,7 @@ class Event extends BaseModel
     ];
 
 
-    protected $visible = ['id', 'event_raw', 'combined', 'sorted'];
+    //protected $visible = ['id', 'event_raw', 'combined', 'sorted'];
 
 
     public function bets()

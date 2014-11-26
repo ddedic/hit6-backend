@@ -1,35 +1,29 @@
 <?php
 /**
- * Project: boiler.dev
+ * Project: hit6.dev
  * User: ddedic
  * Date: 23/11/14
  * Time: 21:01
  */
 
-namespace Ddedic\Hit6\Generators;
+namespace Ddedic\Hit6\Generators\Engines;
 
 
-use Ddedic\Hit6\Interfaces\BallGeneratorInterface;
-use Ddedic\Hit6\Interfaces\BallInterface;
-use Ddedic\Hit6\Abstracts\AbstractBallGenerator;
+use Ddedic\Hit6\Balls\Interfaces\BallInterface;
+use Ddedic\Hit6\Generators\AbstractBallGenerator;
+use Ddedic\Hit6\Generators\Interfaces\EngineInterface;
+
 use Illuminate\Database\Eloquent\Collection;
 
 
-class MtRandBallGenerator extends AbstractBallGenerator implements BallGeneratorInterface {
-
-
-    public function __construct()
-    {
-
-    }
+class MtRandBallGenerator extends AbstractBallGenerator implements EngineInterface {
 
     /**
      * @param BallInterface $balls
      * @return mixed
      */
-    public function generateBalls(BallInterface $balls)
+    public function generate(BallInterface $balls)
     {
-
 
         $ballsdata = $balls->getBalls()->shuffle()->toArray();
         $generated = [];
@@ -48,7 +42,6 @@ class MtRandBallGenerator extends AbstractBallGenerator implements BallGenerator
 
         } while ((count($generated) < 49 ));
 
-        //dd($generated);
 
         foreach ($generated as $key => $value) {
             array_push($randomizedBalls, $ballsdata[$value - 1]);

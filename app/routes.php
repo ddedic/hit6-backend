@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/hello', function()
+
+
+
+Route::get('test123', function () {
+    echo '123';
+});
+
+
+
+Route::get('hello', function()
 {
 	//Debugbar::info("This is my info message!");
 

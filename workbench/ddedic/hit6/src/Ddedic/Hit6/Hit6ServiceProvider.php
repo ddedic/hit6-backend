@@ -1,5 +1,7 @@
 <?php namespace Ddedic\Hit6;
 
+use Ddedic\Hit6\Generators\BallGenerator;
+use Ddedic\Hit6\Generators\MtRandBallGenerator;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application;
@@ -24,24 +26,33 @@ class Hit6ServiceProvider extends ServiceProvider {
 	{
         $loader = AliasLoader::getInstance();
 
-        // EventGenerator
-        // $loader->alias('EventGenerator', 'Ddedic\Hit6\Facades\EventGeneratorFacade');
+
+        // DEPENDENCIES --------
+        // Dingo\API
+        $loader->alias('API', 'Dingo\Api\Facade\API');
+
+
+        // HIT 6 ---------------
+        // BallGenerator
+        $loader->alias('BallGenerator', 'Ddedic\Hit6\Facades\BallGeneratorFacade');
+
+
 
 
 
 
 
 		$this->package('ddedic/hit6');
-
         $this->bootCommands();
 
 
 
+        require_once __DIR__ . '/Support/Helpers/helpers.php';
+        require_once __DIR__ . '/Routes/FrontendRoutes.php';
+        require_once __DIR__ . '/Routes/BackendRoutes.php';
+        require_once __DIR__ . '/Routes/ApiRoutes.php';
+        require_once __DIR__ . '/Support/Handlers/ErrorHandler.php';
 
-
-
-        require_once __DIR__.'/../../helpers.php';
-        require_once __DIR__.'/../../routes.php';
     }
 
 	/**
@@ -52,6 +63,10 @@ class Hit6ServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
+        // Dingo\API
+        $this->app->register('Dingo\Api\Provider\ApiServiceProvider');
+
+
 
         $this->registerCities();
         $this->registerShops();
@@ -59,9 +74,8 @@ class Hit6ServiceProvider extends ServiceProvider {
         $this->registerEvents();
         $this->registerBets();
 
-
-        $this->app->singleton('Ddedic\Hit6\Interfaces\BallGeneratorInterface', 'Ddedic\Hit6\Generators\MtRandBallGenerator');
-
+        // Last: Generator Engine
+        $this->registerGenerator();
 
     }
 
@@ -128,6 +142,34 @@ class Hit6ServiceProvider extends ServiceProvider {
             return $repository;
         });
     }
+
+
+
+
+
+    private function registerGenerator()
+    {
+        $app = $this->app;
+
+        $app->bindShared('hit6.ball.generator', function(Application $app) {
+            // MtRandom Engine
+            $generator = new Generators\Engines\MtRandBallGenerator();
+
+            return new BallGenerator($generator, $app->make('Ddedic\Hit6\Balls\Interfaces\BallInterface'));
+        });
+
+        /*
+        $app->bind('Ddedic\Hit6\Generators\Interfaces\GeneratorInterface', function (Application $app) {
+            $generator = new Generators\Engines\MtRandBallGenerator();
+            $balls = new Balls\Repositories\BallRepository(new Balls\Models\Ball);
+
+            return new BallGenerator($generator, $balls);
+        });
+        */
+    }
+
+
+
 
 
     public function bootCommands()

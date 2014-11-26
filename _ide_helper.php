@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.11 on 2014-11-24.
+ * Generated for Laravel 4.2.11 on 2014-11-26.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -10011,6 +10011,147 @@ namespace {
     class Route extends \Illuminate\Support\Facades\Route{
         
         /**
+         * Register an API group.
+         *
+         * @param array|string $options
+         * @param callable $callback
+         * @return void 
+         * @throws \BadMethodCallException
+         * @static 
+         */
+        public static function api($options, $callback){
+            \Dingo\Api\Routing\Router::api($options, $callback);
+        }
+        
+        /**
+         * Dispatch the request to the application and return either a regular response
+         * or an API response.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return \Illuminate\Http\Response|\Dingo\Api\Http\Response 
+         * @throws \Exception
+         * @static 
+         */
+        public static function dispatch($request){
+            return \Dingo\Api\Routing\Router::dispatch($request);
+        }
+        
+        /**
+         * Determine if the request is an API request.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return bool 
+         * @static 
+         */
+        public static function isApiRequest($request){
+            return \Dingo\Api\Routing\Router::isApiRequest($request);
+        }
+        
+        /**
+         * Get the current API format.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getCurrentFormat(){
+            return \Dingo\Api\Routing\Router::getCurrentFormat();
+        }
+        
+        /**
+         * Get the current API version.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getCurrentVersion(){
+            return \Dingo\Api\Routing\Router::getCurrentVersion();
+        }
+        
+        /**
+         * Get a controller inspector instance.
+         *
+         * @return \Dingo\Api\Routing\ControllerInspector 
+         * @static 
+         */
+        public static function getInspector(){
+            return \Dingo\Api\Routing\Router::getInspector();
+        }
+        
+        /**
+         * Set the current request.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return void 
+         * @static 
+         */
+        public static function setCurrentRequest($request){
+            \Dingo\Api\Routing\Router::setCurrentRequest($request);
+        }
+        
+        /**
+         * Set the current route.
+         *
+         * @param \Illuminate\Routing\Route $route
+         * @return void 
+         * @static 
+         */
+        public static function setCurrentRoute($route){
+            \Dingo\Api\Routing\Router::setCurrentRoute($route);
+        }
+        
+        /**
+         * Get the API groups collection containing the API routes.
+         *
+         * @return \Dingo\Api\Routing\GroupCollection 
+         * @static 
+         */
+        public static function getApiGroups(){
+            return \Dingo\Api\Routing\Router::getApiGroups();
+        }
+        
+        /**
+         * Determine if conditional requests are enabled.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function requestsAreConditional(){
+            return \Dingo\Api\Routing\Router::requestsAreConditional();
+        }
+        
+        /**
+         * Enable or disable conditional requests.
+         *
+         * @param bool $conditionalRequest
+         * @return void 
+         * @static 
+         */
+        public static function setConditionalRequest($conditionalRequest){
+            \Dingo\Api\Routing\Router::setConditionalRequest($conditionalRequest);
+        }
+        
+        /**
+         * Determine if the request should be treated as strict.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function isStrict(){
+            return \Dingo\Api\Routing\Router::isStrict();
+        }
+        
+        /**
+         * Enable or disable strict mode.
+         *
+         * @param bool $strict
+         * @return void 
+         * @static 
+         */
+        public static function setStrict($strict){
+            \Dingo\Api\Routing\Router::setStrict($strict);
+        }
+        
+        /**
          * Register a new GET route with the router.
          *
          * @param string $uri
@@ -10019,7 +10160,8 @@ namespace {
          * @static 
          */
         public static function get($uri, $action){
-            return \Illuminate\Routing\Router::get($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::get($uri, $action);
         }
         
         /**
@@ -10031,7 +10173,8 @@ namespace {
          * @static 
          */
         public static function post($uri, $action){
-            return \Illuminate\Routing\Router::post($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::post($uri, $action);
         }
         
         /**
@@ -10043,7 +10186,8 @@ namespace {
          * @static 
          */
         public static function put($uri, $action){
-            return \Illuminate\Routing\Router::put($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::put($uri, $action);
         }
         
         /**
@@ -10055,7 +10199,8 @@ namespace {
          * @static 
          */
         public static function patch($uri, $action){
-            return \Illuminate\Routing\Router::patch($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::patch($uri, $action);
         }
         
         /**
@@ -10067,7 +10212,8 @@ namespace {
          * @static 
          */
         public static function delete($uri, $action){
-            return \Illuminate\Routing\Router::delete($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::delete($uri, $action);
         }
         
         /**
@@ -10079,7 +10225,8 @@ namespace {
          * @static 
          */
         public static function options($uri, $action){
-            return \Illuminate\Routing\Router::options($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::options($uri, $action);
         }
         
         /**
@@ -10091,7 +10238,8 @@ namespace {
          * @static 
          */
         public static function any($uri, $action){
-            return \Illuminate\Routing\Router::any($uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::any($uri, $action);
         }
         
         /**
@@ -10104,7 +10252,8 @@ namespace {
          * @static 
          */
         public static function match($methods, $uri, $action){
-            return \Illuminate\Routing\Router::match($methods, $uri, $action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::match($methods, $uri, $action);
         }
         
         /**
@@ -10115,7 +10264,8 @@ namespace {
          * @static 
          */
         public static function controllers($controllers){
-            \Illuminate\Routing\Router::controllers($controllers);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::controllers($controllers);
         }
         
         /**
@@ -10128,7 +10278,8 @@ namespace {
          * @static 
          */
         public static function controller($uri, $controller, $names = array()){
-            \Illuminate\Routing\Router::controller($uri, $controller, $names);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::controller($uri, $controller, $names);
         }
         
         /**
@@ -10141,7 +10292,8 @@ namespace {
          * @static 
          */
         public static function resource($name, $controller, $options = array()){
-            \Illuminate\Routing\Router::resource($name, $controller, $options);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::resource($name, $controller, $options);
         }
         
         /**
@@ -10152,7 +10304,8 @@ namespace {
          * @static 
          */
         public static function getResourceUri($resource){
-            return \Illuminate\Routing\Router::getResourceUri($resource);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getResourceUri($resource);
         }
         
         /**
@@ -10163,7 +10316,8 @@ namespace {
          * @static 
          */
         public static function getResourceWildcard($value){
-            return \Illuminate\Routing\Router::getResourceWildcard($value);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getResourceWildcard($value);
         }
         
         /**
@@ -10175,7 +10329,8 @@ namespace {
          * @static 
          */
         public static function group($attributes, $callback){
-            \Illuminate\Routing\Router::group($attributes, $callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::group($attributes, $callback);
         }
         
         /**
@@ -10186,7 +10341,8 @@ namespace {
          * @static 
          */
         public static function mergeWithLastGroup($new){
-            return \Illuminate\Routing\Router::mergeWithLastGroup($new);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::mergeWithLastGroup($new);
         }
         
         /**
@@ -10198,18 +10354,8 @@ namespace {
          * @static 
          */
         public static function mergeGroup($new, $old){
-            return \Illuminate\Routing\Router::mergeGroup($new, $old);
-        }
-        
-        /**
-         * Dispatch the request to the application.
-         *
-         * @param \Illuminate\Http\Request $request
-         * @return \Illuminate\Http\Response 
-         * @static 
-         */
-        public static function dispatch($request){
-            return \Illuminate\Routing\Router::dispatch($request);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::mergeGroup($new, $old);
         }
         
         /**
@@ -10220,7 +10366,8 @@ namespace {
          * @static 
          */
         public static function dispatchToRoute($request){
-            return \Illuminate\Routing\Router::dispatchToRoute($request);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::dispatchToRoute($request);
         }
         
         /**
@@ -10231,7 +10378,8 @@ namespace {
          * @static 
          */
         public static function matched($callback){
-            \Illuminate\Routing\Router::matched($callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::matched($callback);
         }
         
         /**
@@ -10242,7 +10390,8 @@ namespace {
          * @static 
          */
         public static function before($callback){
-            \Illuminate\Routing\Router::before($callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::before($callback);
         }
         
         /**
@@ -10253,7 +10402,8 @@ namespace {
          * @static 
          */
         public static function after($callback){
-            \Illuminate\Routing\Router::after($callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::after($callback);
         }
         
         /**
@@ -10265,7 +10415,8 @@ namespace {
          * @static 
          */
         public static function filter($name, $callback){
-            \Illuminate\Routing\Router::filter($name, $callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::filter($name, $callback);
         }
         
         /**
@@ -10278,7 +10429,8 @@ namespace {
          * @static 
          */
         public static function when($pattern, $name, $methods = null){
-            \Illuminate\Routing\Router::when($pattern, $name, $methods);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::when($pattern, $name, $methods);
         }
         
         /**
@@ -10291,7 +10443,8 @@ namespace {
          * @static 
          */
         public static function whenRegex($pattern, $name, $methods = null){
-            \Illuminate\Routing\Router::whenRegex($pattern, $name, $methods);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::whenRegex($pattern, $name, $methods);
         }
         
         /**
@@ -10305,7 +10458,8 @@ namespace {
          * @static 
          */
         public static function model($key, $class, $callback = null){
-            \Illuminate\Routing\Router::model($key, $class, $callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::model($key, $class, $callback);
         }
         
         /**
@@ -10317,7 +10471,8 @@ namespace {
          * @static 
          */
         public static function bind($key, $binder){
-            \Illuminate\Routing\Router::bind($key, $binder);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::bind($key, $binder);
         }
         
         /**
@@ -10328,7 +10483,8 @@ namespace {
          * @static 
          */
         public static function createClassBinding($binding){
-            return \Illuminate\Routing\Router::createClassBinding($binding);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::createClassBinding($binding);
         }
         
         /**
@@ -10340,7 +10496,8 @@ namespace {
          * @static 
          */
         public static function pattern($key, $pattern){
-            \Illuminate\Routing\Router::pattern($key, $pattern);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::pattern($key, $pattern);
         }
         
         /**
@@ -10351,7 +10508,8 @@ namespace {
          * @static 
          */
         public static function patterns($patterns){
-            \Illuminate\Routing\Router::patterns($patterns);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::patterns($patterns);
         }
         
         /**
@@ -10363,7 +10521,8 @@ namespace {
          * @static 
          */
         public static function callRouteBefore($route, $request){
-            return \Illuminate\Routing\Router::callRouteBefore($route, $request);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::callRouteBefore($route, $request);
         }
         
         /**
@@ -10374,7 +10533,8 @@ namespace {
          * @static 
          */
         public static function findPatternFilters($request){
-            return \Illuminate\Routing\Router::findPatternFilters($request);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::findPatternFilters($request);
         }
         
         /**
@@ -10387,7 +10547,8 @@ namespace {
          * @static 
          */
         public static function callRouteAfter($route, $request, $response){
-            return \Illuminate\Routing\Router::callRouteAfter($route, $request, $response);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::callRouteAfter($route, $request, $response);
         }
         
         /**
@@ -10402,7 +10563,8 @@ namespace {
          * @static 
          */
         public static function callRouteFilter($filter, $parameters, $route, $request, $response = null){
-            return \Illuminate\Routing\Router::callRouteFilter($filter, $parameters, $route, $request, $response);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::callRouteFilter($filter, $parameters, $route, $request, $response);
         }
         
         /**
@@ -10413,7 +10575,8 @@ namespace {
          * @static 
          */
         public static function withoutFilters($callback){
-            \Illuminate\Routing\Router::withoutFilters($callback);
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::withoutFilters($callback);
         }
         
         /**
@@ -10423,7 +10586,8 @@ namespace {
          * @static 
          */
         public static function enableFilters(){
-            \Illuminate\Routing\Router::enableFilters();
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::enableFilters();
         }
         
         /**
@@ -10433,7 +10597,8 @@ namespace {
          * @static 
          */
         public static function disableFilters(){
-            \Illuminate\Routing\Router::disableFilters();
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::disableFilters();
         }
         
         /**
@@ -10445,7 +10610,8 @@ namespace {
          * @static 
          */
         public static function input($key, $default = null){
-            return \Illuminate\Routing\Router::input($key, $default);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::input($key, $default);
         }
         
         /**
@@ -10455,7 +10621,8 @@ namespace {
          * @static 
          */
         public static function getCurrentRoute(){
-            return \Illuminate\Routing\Router::getCurrentRoute();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getCurrentRoute();
         }
         
         /**
@@ -10465,7 +10632,8 @@ namespace {
          * @static 
          */
         public static function current(){
-            return \Illuminate\Routing\Router::current();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::current();
         }
         
         /**
@@ -10476,7 +10644,8 @@ namespace {
          * @static 
          */
         public static function has($name){
-            return \Illuminate\Routing\Router::has($name);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::has($name);
         }
         
         /**
@@ -10486,7 +10655,8 @@ namespace {
          * @static 
          */
         public static function currentRouteName(){
-            return \Illuminate\Routing\Router::currentRouteName();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::currentRouteName();
         }
         
         /**
@@ -10497,7 +10667,8 @@ namespace {
          * @static 
          */
         public static function is(){
-            return \Illuminate\Routing\Router::is();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::is();
         }
         
         /**
@@ -10508,7 +10679,8 @@ namespace {
          * @static 
          */
         public static function currentRouteNamed($name){
-            return \Illuminate\Routing\Router::currentRouteNamed($name);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::currentRouteNamed($name);
         }
         
         /**
@@ -10518,7 +10690,8 @@ namespace {
          * @static 
          */
         public static function currentRouteAction(){
-            return \Illuminate\Routing\Router::currentRouteAction();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::currentRouteAction();
         }
         
         /**
@@ -10529,7 +10702,8 @@ namespace {
          * @static 
          */
         public static function uses(){
-            return \Illuminate\Routing\Router::uses();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::uses();
         }
         
         /**
@@ -10540,7 +10714,8 @@ namespace {
          * @static 
          */
         public static function currentRouteUses($action){
-            return \Illuminate\Routing\Router::currentRouteUses($action);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::currentRouteUses($action);
         }
         
         /**
@@ -10550,7 +10725,8 @@ namespace {
          * @static 
          */
         public static function getCurrentRequest(){
-            return \Illuminate\Routing\Router::getCurrentRequest();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getCurrentRequest();
         }
         
         /**
@@ -10560,7 +10736,8 @@ namespace {
          * @static 
          */
         public static function getRoutes(){
-            return \Illuminate\Routing\Router::getRoutes();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getRoutes();
         }
         
         /**
@@ -10570,7 +10747,8 @@ namespace {
          * @static 
          */
         public static function getControllerDispatcher(){
-            return \Illuminate\Routing\Router::getControllerDispatcher();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getControllerDispatcher();
         }
         
         /**
@@ -10581,17 +10759,8 @@ namespace {
          * @static 
          */
         public static function setControllerDispatcher($dispatcher){
-            \Illuminate\Routing\Router::setControllerDispatcher($dispatcher);
-        }
-        
-        /**
-         * Get a controller inspector instance.
-         *
-         * @return \Illuminate\Routing\ControllerInspector 
-         * @static 
-         */
-        public static function getInspector(){
-            return \Illuminate\Routing\Router::getInspector();
+            //Method inherited from \Illuminate\Routing\Router            
+            \Dingo\Api\Routing\Router::setControllerDispatcher($dispatcher);
         }
         
         /**
@@ -10601,7 +10770,8 @@ namespace {
          * @static 
          */
         public static function getPatterns(){
-            return \Illuminate\Routing\Router::getPatterns();
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::getPatterns();
         }
         
         /**
@@ -10614,7 +10784,8 @@ namespace {
          * @static 
          */
         public static function handle($request, $type = 1, $catch = true){
-            return \Illuminate\Routing\Router::handle($request, $type, $catch);
+            //Method inherited from \Illuminate\Routing\Router            
+            return \Dingo\Api\Routing\Router::handle($request, $type, $catch);
         }
         
     }
@@ -11524,13 +11695,32 @@ namespace {
     class URL extends \Illuminate\Support\Facades\URL{
         
         /**
+         * {@inheritDoc}
+         *
+         * @static 
+         */
+        public static function action($action, $parameters = array(), $absolute = true){
+            return \Dingo\Api\Routing\UrlGenerator::action($action, $parameters, $absolute);
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @static 
+         */
+        public static function route($name, $parameters = array(), $absolute = true, $route = null){
+            return \Dingo\Api\Routing\UrlGenerator::route($name, $parameters, $absolute, $route);
+        }
+        
+        /**
          * Get the full URL for the current request.
          *
          * @return string 
          * @static 
          */
         public static function full(){
-            return \Illuminate\Routing\UrlGenerator::full();
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::full();
         }
         
         /**
@@ -11540,7 +11730,8 @@ namespace {
          * @static 
          */
         public static function current(){
-            return \Illuminate\Routing\UrlGenerator::current();
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::current();
         }
         
         /**
@@ -11550,7 +11741,8 @@ namespace {
          * @static 
          */
         public static function previous(){
-            return \Illuminate\Routing\UrlGenerator::previous();
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::previous();
         }
         
         /**
@@ -11563,7 +11755,8 @@ namespace {
          * @static 
          */
         public static function to($path, $extra = array(), $secure = null){
-            return \Illuminate\Routing\UrlGenerator::to($path, $extra, $secure);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::to($path, $extra, $secure);
         }
         
         /**
@@ -11575,7 +11768,8 @@ namespace {
          * @static 
          */
         public static function secure($path, $parameters = array()){
-            return \Illuminate\Routing\UrlGenerator::secure($path, $parameters);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::secure($path, $parameters);
         }
         
         /**
@@ -11587,7 +11781,8 @@ namespace {
          * @static 
          */
         public static function asset($path, $secure = null){
-            return \Illuminate\Routing\UrlGenerator::asset($path, $secure);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::asset($path, $secure);
         }
         
         /**
@@ -11598,7 +11793,8 @@ namespace {
          * @static 
          */
         public static function secureAsset($path){
-            return \Illuminate\Routing\UrlGenerator::secureAsset($path);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::secureAsset($path);
         }
         
         /**
@@ -11609,35 +11805,8 @@ namespace {
          * @static 
          */
         public static function forceSchema($schema){
-            \Illuminate\Routing\UrlGenerator::forceSchema($schema);
-        }
-        
-        /**
-         * Get the URL to a named route.
-         *
-         * @param string $name
-         * @param mixed $parameters
-         * @param bool $absolute
-         * @param \Illuminate\Routing\Route $route
-         * @return string 
-         * @throws \InvalidArgumentException
-         * @static 
-         */
-        public static function route($name, $parameters = array(), $absolute = true, $route = null){
-            return \Illuminate\Routing\UrlGenerator::route($name, $parameters, $absolute, $route);
-        }
-        
-        /**
-         * Get the URL to a controller action.
-         *
-         * @param string $action
-         * @param mixed $parameters
-         * @param bool $absolute
-         * @return string 
-         * @static 
-         */
-        public static function action($action, $parameters = array(), $absolute = true){
-            return \Illuminate\Routing\UrlGenerator::action($action, $parameters, $absolute);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            \Dingo\Api\Routing\UrlGenerator::forceSchema($schema);
         }
         
         /**
@@ -11648,7 +11817,8 @@ namespace {
          * @static 
          */
         public static function forceRootUrl($root){
-            \Illuminate\Routing\UrlGenerator::forceRootUrl($root);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            \Dingo\Api\Routing\UrlGenerator::forceRootUrl($root);
         }
         
         /**
@@ -11659,7 +11829,8 @@ namespace {
          * @static 
          */
         public static function isValidUrl($path){
-            return \Illuminate\Routing\UrlGenerator::isValidUrl($path);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::isValidUrl($path);
         }
         
         /**
@@ -11669,7 +11840,8 @@ namespace {
          * @static 
          */
         public static function getRequest(){
-            return \Illuminate\Routing\UrlGenerator::getRequest();
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            return \Dingo\Api\Routing\UrlGenerator::getRequest();
         }
         
         /**
@@ -11680,7 +11852,8 @@ namespace {
          * @static 
          */
         public static function setRequest($request){
-            \Illuminate\Routing\UrlGenerator::setRequest($request);
+            //Method inherited from \Illuminate\Routing\UrlGenerator            
+            \Dingo\Api\Routing\UrlGenerator::setRequest($request);
         }
         
     }
@@ -12236,628 +12409,199 @@ namespace {
     }
 
 
-    class Debugbar extends \Barryvdh\Debugbar\Facade{
+    class API extends \Dingo\Api\Facade\API{
         
         /**
-         * Enable the Debugbar and boot, if not already booted.
+         * Attach files to be uploaded.
          *
+         * @param array $files
+         * @return \Dingo\Api\Dispatcher 
          * @static 
          */
-        public static function enable(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::enable();
+        public static function attach($files){
+            return \Dingo\Api\Dispatcher::attach($files);
         }
         
         /**
-         * Boot the debugbar (add collectors, renderer and listener)
+         * Internal request will be authenticated as the given user.
          *
+         * @param \Illuminate\Auth\GenericUser|\Illuminate\Database\Eloquent\Model $user
+         * @return \Dingo\Api\Dispatcher 
+         * @throws \RuntimeException
          * @static 
          */
-        public static function boot(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::boot();
+        public static function be($user){
+            return \Dingo\Api\Dispatcher::be($user);
         }
         
         /**
-         * 
+         * Send a JSON payload in the request body.
          *
+         * @param string|array $content
+         * @return \Dingo\Api\Dispatcher 
          * @static 
          */
-        public static function shouldCollect($name, $default = false){
-            return \Barryvdh\Debugbar\LaravelDebugbar::shouldCollect($name, $default);
+        public static function json($content){
+            return \Dingo\Api\Dispatcher::json($content);
         }
         
         /**
-         * Starts a measure
+         * Sets the domain to be used for the request.
          *
-         * @param string $name Internal name, used to stop the measure
-         * @param string $label Public name
+         * @param string $domain
+         * @return \Dingo\Api\Dispatcher 
          * @static 
          */
-        public static function startMeasure($name, $label = null){
-            return \Barryvdh\Debugbar\LaravelDebugbar::startMeasure($name, $label);
+        public static function on($domain){
+            return \Dingo\Api\Dispatcher::on($domain);
         }
         
         /**
-         * Stops a measure
+         * Only authenticate with the given user for a single request.
+         *
+         * @return \Dingo\Api\Dispatcher 
+         * @static 
+         */
+        public static function once(){
+            return \Dingo\Api\Dispatcher::once();
+        }
+        
+        /**
+         * Set the version of the API for the next request.
+         *
+         * @param string $version
+         * @return \Dingo\Api\Dispatcher 
+         * @static 
+         */
+        public static function version($version){
+            return \Dingo\Api\Dispatcher::version($version);
+        }
+        
+        /**
+         * Set the parameters to be sent on the next API request.
+         *
+         * @param string|array $parameters
+         * @return \Dingo\Api\Dispatcher 
+         * @static 
+         */
+        public static function with($parameters){
+            return \Dingo\Api\Dispatcher::with($parameters);
+        }
+        
+        /**
+         * Set a header to be sent on the next API request.
+         *
+         * @param string $key
+         * @param string $value
+         * @return \Dingo\Api\Dispatcher 
+         * @static 
+         */
+        public static function header($key, $value){
+            return \Dingo\Api\Dispatcher::header($key, $value);
+        }
+        
+        /**
+         * Perform an API request to a named route.
          *
          * @param string $name
+         * @param string|array $parameters
+         * @param string|array $requestParameters
+         * @return mixed 
          * @static 
          */
-        public static function stopMeasure($name){
-            return \Barryvdh\Debugbar\LaravelDebugbar::stopMeasure($name);
+        public static function route($name, $parameters = array(), $requestParameters = array()){
+            return \Dingo\Api\Dispatcher::route($name, $parameters, $requestParameters);
         }
         
         /**
-         * Adds an exception to be profiled in the debug bar
+         * Perform an API request to a controller action.
          *
-         * @param \Barryvdh\Debugbar\Exception $e
+         * @param string $action
+         * @param string|array $parameters
+         * @param string|array $requestParameters
+         * @return mixed 
          * @static 
          */
-        public static function addException($e){
-            return \Barryvdh\Debugbar\LaravelDebugbar::addException($e);
+        public static function action($action, $parameters = array(), $requestParameters = array()){
+            return \Dingo\Api\Dispatcher::action($action, $parameters, $requestParameters);
         }
         
         /**
-         * Returns a JavascriptRenderer for this instance
+         * Perform API GET request.
          *
-         * @param string $baseUrl
-         * @param string $basePathng
-         * @return \Barryvdh\Debugbar\JavascriptRenderer 
+         * @param string $uri
+         * @param string|array $parameters
+         * @return mixed 
          * @static 
          */
-        public static function getJavascriptRenderer($baseUrl = null, $basePath = null){
-            return \Barryvdh\Debugbar\LaravelDebugbar::getJavascriptRenderer($baseUrl, $basePath);
+        public static function get($uri, $parameters = array()){
+            return \Dingo\Api\Dispatcher::get($uri, $parameters);
         }
         
         /**
-         * Modify the response and inject the debugbar (or data in headers)
+         * Perform API POST request.
          *
-         * @param \Illuminate\Http\Request $request
-         * @param \Symfony\Component\HttpFoundation\Response $response
-         * @return \Symfony\Component\HttpFoundation\Response 
+         * @param string $uri
+         * @param string|array $parameters
+         * @param string $content
+         * @return mixed 
          * @static 
          */
-        public static function modifyResponse($request, $response){
-            return \Barryvdh\Debugbar\LaravelDebugbar::modifyResponse($request, $response);
+        public static function post($uri, $parameters = array(), $content = ''){
+            return \Dingo\Api\Dispatcher::post($uri, $parameters, $content);
         }
         
         /**
-         * Check if the Debugbar is enabled
+         * Perform API PUT request.
          *
-         * @return boolean 
+         * @param string $uri
+         * @param string|array $parameters
+         * @param string $content
+         * @return mixed 
          * @static 
          */
-        public static function isEnabled(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::isEnabled();
+        public static function put($uri, $parameters = array(), $content = ''){
+            return \Dingo\Api\Dispatcher::put($uri, $parameters, $content);
         }
         
         /**
-         * Collects the data from the collectors
+         * Perform API PATCH request.
          *
-         * @return array 
+         * @param string $uri
+         * @param string|array $parameters
+         * @param string $content
+         * @return mixed 
          * @static 
          */
-        public static function collect(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::collect();
+        public static function patch($uri, $parameters = array(), $content = ''){
+            return \Dingo\Api\Dispatcher::patch($uri, $parameters, $content);
         }
         
         /**
-         * Injects the web debug toolbar into the given Response.
+         * Perform API DELETE request.
          *
-         * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
-         * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
+         * @param string $uri
+         * @param string|array $parameters
+         * @param string $content
+         * @return mixed 
          * @static 
          */
-        public static function injectDebugbar($response){
-            return \Barryvdh\Debugbar\LaravelDebugbar::injectDebugbar($response);
-        }
-        
-        /**
-         * Disable the Debugbar
-         *
-         * @static 
-         */
-        public static function disable(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::disable();
-        }
-        
-        /**
-         * Adds a measure
-         *
-         * @param string $label
-         * @param float $start
-         * @param float $end
-         * @static 
-         */
-        public static function addMeasure($label, $start, $end){
-            return \Barryvdh\Debugbar\LaravelDebugbar::addMeasure($label, $start, $end);
-        }
-        
-        /**
-         * Utility function to measure the execution of a Closure
-         *
-         * @param string $label
-         * @param \Closure $closure
-         * @static 
-         */
-        public static function measure($label, $closure){
-            return \Barryvdh\Debugbar\LaravelDebugbar::measure($label, $closure);
-        }
-        
-        /**
-         * Collect data in a CLI request
-         *
-         * @return array 
-         * @static 
-         */
-        public static function collectConsole(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::collectConsole();
-        }
-        
-        /**
-         * Adds a message to the MessagesCollector
-         * 
-         * A message can be anything from an object to a string
-         *
-         * @param mixed $message
-         * @param string $label
-         * @static 
-         */
-        public static function addMessage($message, $label = 'info'){
-            return \Barryvdh\Debugbar\LaravelDebugbar::addMessage($message, $label);
-        }
-        
-        /**
-         * Adds a data collector
-         *
-         * @param \DebugBar\DataCollectorInterface $collector
-         * @throws DebugBarException
-         * @return $this 
-         * @static 
-         */
-        public static function addCollector($collector){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::addCollector($collector);
-        }
-        
-        /**
-         * Checks if a data collector has been added
-         *
-         * @param string $name
-         * @return boolean 
-         * @static 
-         */
-        public static function hasCollector($name){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::hasCollector($name);
-        }
-        
-        /**
-         * Returns a data collector
-         *
-         * @param string $name
-         * @return \DebugBar\DataCollectorInterface 
-         * @static 
-         */
-        public static function getCollector($name){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getCollector($name);
-        }
-        
-        /**
-         * Returns an array of all data collectors
-         *
-         * @return \DebugBar\array[DataCollectorInterface] 
-         * @static 
-         */
-        public static function getCollectors(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getCollectors();
-        }
-        
-        /**
-         * Sets the request id generator
-         *
-         * @param \DebugBar\RequestIdGeneratorInterface $generator
-         * @static 
-         */
-        public static function setRequestIdGenerator($generator){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::setRequestIdGenerator($generator);
-        }
-        
-        /**
-         * 
-         *
-         * @return \DebugBar\RequestIdGeneratorInterface 
-         * @static 
-         */
-        public static function getRequestIdGenerator(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getRequestIdGenerator();
-        }
-        
-        /**
-         * Returns the id of the current request
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getCurrentRequestId(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getCurrentRequestId();
-        }
-        
-        /**
-         * Sets the storage backend to use to store the collected data
-         *
-         * @param \DebugBar\StorageInterface $storage
-         * @static 
-         */
-        public static function setStorage($storage = null){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::setStorage($storage);
-        }
-        
-        /**
-         * 
-         *
-         * @return \DebugBar\StorageInterface 
-         * @static 
-         */
-        public static function getStorage(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getStorage();
-        }
-        
-        /**
-         * Checks if the data will be persisted
-         *
-         * @return boolean 
-         * @static 
-         */
-        public static function isDataPersisted(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::isDataPersisted();
-        }
-        
-        /**
-         * Sets the HTTP driver
-         *
-         * @param \DebugBar\HttpDriverInterface $driver
-         * @static 
-         */
-        public static function setHttpDriver($driver){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::setHttpDriver($driver);
-        }
-        
-        /**
-         * Returns the HTTP driver
-         * 
-         * If no http driver where defined, a PhpHttpDriver is automatically created
-         *
-         * @return \DebugBar\HttpDriverInterface 
-         * @static 
-         */
-        public static function getHttpDriver(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getHttpDriver();
-        }
-        
-        /**
-         * Returns collected data
-         * 
-         * Will collect the data if none have been collected yet
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getData(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getData();
-        }
-        
-        /**
-         * Returns an array of HTTP headers containing the data
-         *
-         * @param string $headerName
-         * @param integer $maxHeaderLength
-         * @return array 
-         * @static 
-         */
-        public static function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096, $maxTotalHeaderLength = 250000){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getDataAsHeaders($headerName, $maxHeaderLength, $maxTotalHeaderLength);
-        }
-        
-        /**
-         * Sends the data through the HTTP headers
-         *
-         * @param bool $useOpenHandler
-         * @param string $headerName
-         * @param integer $maxHeaderLength
-         * @static 
-         */
-        public static function sendDataInHeaders($useOpenHandler = null, $headerName = 'phpdebugbar', $maxHeaderLength = 4096){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::sendDataInHeaders($useOpenHandler, $headerName, $maxHeaderLength);
-        }
-        
-        /**
-         * Stacks the data in the session for later rendering
-         *
-         * @static 
-         */
-        public static function stackData(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::stackData();
-        }
-        
-        /**
-         * Checks if there is stacked data in the session
-         *
-         * @return boolean 
-         * @static 
-         */
-        public static function hasStackedData(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::hasStackedData();
-        }
-        
-        /**
-         * Returns the data stacked in the session
-         *
-         * @param boolean $delete Whether to delete the data in the session
-         * @return array 
-         * @static 
-         */
-        public static function getStackedData($delete = true){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getStackedData($delete);
-        }
-        
-        /**
-         * Sets the key to use in the $_SESSION array
-         *
-         * @param string $ns
-         * @static 
-         */
-        public static function setStackDataSessionNamespace($ns){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::setStackDataSessionNamespace($ns);
-        }
-        
-        /**
-         * Returns the key used in the $_SESSION array
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getStackDataSessionNamespace(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getStackDataSessionNamespace();
-        }
-        
-        /**
-         * Sets whether to only use the session to store stacked data even
-         * if a storage is enabled
-         *
-         * @param boolean $enabled
-         * @static 
-         */
-        public static function setStackAlwaysUseSessionStorage($enabled = true){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::setStackAlwaysUseSessionStorage($enabled);
-        }
-        
-        /**
-         * Checks if the session is always used to store stacked data
-         * even if a storage is enabled
-         *
-         * @return boolean 
-         * @static 
-         */
-        public static function isStackAlwaysUseSessionStorage(){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::isStackAlwaysUseSessionStorage();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetSet($key, $value){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::offsetSet($key, $value);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetGet($key){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::offsetGet($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetExists($key){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::offsetExists($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetUnset($key){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
+        public static function delete($uri, $parameters = array(), $content = ''){
+            return \Dingo\Api\Dispatcher::delete($uri, $parameters, $content);
         }
         
     }
 
 
-    class Confide extends \Zizaco\Confide\Facade{
+    class BallGenerator extends \Ddedic\Hit6\Facades\BallGeneratorFacade{
         
         /**
-         * Returns an object of the model set in auth config.
-         *
-         * @return mixed 
-         * @static 
-         */
-        public static function model(){
-            return \Zizaco\Confide\Confide::model();
-        }
-        
-        /**
-         * Get the currently authenticated user or null.
-         *
-         * @return \Zizaco\Confide\ConfideUserInterface|null 
-         * @static 
-         */
-        public static function user(){
-            return \Zizaco\Confide\Confide::user();
-        }
-        
-        /**
-         * Sets the 'confirmed' field of the user with the matching code to true.
-         *
-         * @param string $code
-         * @return bool Success
-         * @static 
-         */
-        public static function confirm($code){
-            return \Zizaco\Confide\Confide::confirm($code);
-        }
-        
-        /**
-         * Checks if a user with the given identity (email or username) already
-         * exists and retrieve it.
-         *
-         * @param array $identity Array containing at least 'username' or 'email'.
-         * @return \Zizaco\Confide\ConfideUserInterface|null 
-         * @static 
-         */
-        public static function getUserByEmailOrUsername($identity){
-            return \Zizaco\Confide\Confide::getUserByEmailOrUsername($identity);
-        }
-        
-        /**
-         * Attempt to log a user into the application with password and
-         * identity field(s), usually email or username.
-         *
-         * @param array $input Array containing at least 'username' or 'email' and 'password'.
-         *                               Optionally the 'remember' boolean.
-         * @param bool $mustBeConfirmed If true, the user must have confirmed his email account in order to log-in.
-         * @return bool Success.
-         * @static 
-         */
-        public static function logAttempt($input, $mustBeConfirmed = true){
-            return \Zizaco\Confide\Confide::logAttempt($input, $mustBeConfirmed);
-        }
-        
-        /**
-         * Asks the loginThrottler service if the given identity has reached the throttle_limit.
-         *
-         * @param mixed $identity The login identity.
-         * @return boolean True if the identity has reached the throttle_limit.
-         * @static 
-         */
-        public static function isThrottled($identity){
-            return \Zizaco\Confide\Confide::isThrottled($identity);
-        }
-        
-        /**
-         * If an user with the given email exists then generate a token for password
-         * change and saves it in the 'password_reminders' table with the email
-         * of the user.
-         *
-         * @param string $email
-         * @return string $token
-         * @static 
-         */
-        public static function forgotPassword($email){
-            return \Zizaco\Confide\Confide::forgotPassword($email);
-        }
-        
-        /**
-         * Delete the record of the given token from 'password_reminders' table.
-         *
-         * @param string $token Token retrieved from a forgotPassword.
-         * @return boolean Success.
-         * @static 
-         */
-        public static function destroyForgotPasswordToken($token){
-            return \Zizaco\Confide\Confide::destroyForgotPasswordToken($token);
-        }
-        
-        /**
-         * Returns a user that corresponds to the given reset password token or
-         * false if there is no user with the given token.
-         *
-         * @param string $token
-         * @return \Zizaco\Confide\ConfideUser 
-         * @static 
-         */
-        public static function userByResetPasswordToken($token){
-            return \Zizaco\Confide\Confide::userByResetPasswordToken($token);
-        }
-        
-        /**
-         * Log the user out of the application.
+         * 
          *
          * @static 
          */
-        public static function logout(){
-            return \Zizaco\Confide\Confide::logout();
-        }
-        
-        /**
-         * Display the default login view.
-         *
-         * @return \Illuminate\View\View 
-         * @static 
-         */
-        public static function makeLoginForm(){
-            return \Zizaco\Confide\Confide::makeLoginForm();
-        }
-        
-        /**
-         * Display the default signup view
-         *
-         * @return \Illuminate\View\View 
-         * @static 
-         */
-        public static function makeSignupForm(){
-            return \Zizaco\Confide\Confide::makeSignupForm();
-        }
-        
-        /**
-         * Display the forget password view.
-         *
-         * @return \Illuminate\View\View 
-         * @static 
-         */
-        public static function makeForgotPasswordForm(){
-            return \Zizaco\Confide\Confide::makeForgotPasswordForm();
-        }
-        
-        /**
-         * Display the forget password view
-         *
-         * @return \Illuminate\View\View 
-         * @static 
-         */
-        public static function makeResetPasswordForm($token){
-            return \Zizaco\Confide\Confide::makeResetPasswordForm($token);
+        public static function generateBalls(){
+            return \Ddedic\Hit6\Generators\BallGenerator::generateBalls();
         }
         
     }
