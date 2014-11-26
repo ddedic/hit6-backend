@@ -13,4 +13,9 @@ interface CityInterface {
 
     public function getCities();
 
+    public function getTransformer();
+
+    public function paginate($onlyActive = true);
+
+
 } 

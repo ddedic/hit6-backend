@@ -13,6 +13,14 @@ abstract class BaseRepository
 {
     protected $model;
 
+    protected $perPage;
+
+
+    public function __construct()
+    {
+        $this->perPage = 25;
+    }
+
     /**
      * Get empty model
      *

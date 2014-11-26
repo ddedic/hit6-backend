@@ -18,16 +18,24 @@ use Ddedic\Hit6\Shops\Transformers\ShopTransformer;
 
 class ShopRepository extends BaseRepository implements ShopInterface, TransformableInterface {
 
+    protected $perPage;
 
     public function __construct(Model $model)
     {
         $this->model = $model;
+        $this->perPage = 25;
     }
 
 
     public function getShops()
     {
         return $this->model->select(['*'])->get();
+    }
+
+
+    public function paginate($onlyActive = true)
+    {
+        return $result = $onlyActive ? $this->model->where(['active' => '1'])->paginate($this->perPage) : $this->model->paginate($this->perPage);
     }
 
 

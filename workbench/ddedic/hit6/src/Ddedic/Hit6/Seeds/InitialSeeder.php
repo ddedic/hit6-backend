@@ -45,6 +45,7 @@ class InitialSeeder extends Seeder {
                 'city_id'              => 1,
                 'name'              => 'BetLive 001',
                 'note'              => 'Kod Anđe',
+                'active'            => 1,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s')
             ),
@@ -52,6 +53,7 @@ class InitialSeeder extends Seeder {
                 'city_id'              => 1,
                 'name'              => 'BetLive 002',
                 'note'              => 'U Motelu',
+                'active'            => 0,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s')
             ),
@@ -59,6 +61,7 @@ class InitialSeeder extends Seeder {
                 'city_id'              => 1,
                 'name'              => 'Miami-Bet',
                 'note'              => 'Caffe Miami',
+                'active'            => 1,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s')
             )

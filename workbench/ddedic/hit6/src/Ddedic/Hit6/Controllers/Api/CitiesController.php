@@ -12,6 +12,8 @@ use Ddedic\Hit6\Support\Controllers\ApiController;
 use Ddedic\Hit6\Cities\Interfaces\CityInterface;
 use Symfony\Component\HttpFoundation\Response;
 
+use API;
+
 
 class CitiesController extends ApiController {
 
@@ -20,7 +22,6 @@ class CitiesController extends ApiController {
 
     public function __construct(CityInterface $cities)
     {
-
         $this->cities = $cities;
 
     }
@@ -29,7 +30,7 @@ class CitiesController extends ApiController {
 
     public function index()
     {
-        return $this->cities->getModel()->with(['shops.events'])->get();
+        return API::response()->withCollection($this->cities->paginate(), $this->cities->getTransformer());
     }
 
 }

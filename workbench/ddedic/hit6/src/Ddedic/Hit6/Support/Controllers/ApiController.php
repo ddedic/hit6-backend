@@ -8,7 +8,10 @@
 
 namespace Ddedic\Hit6\Support\Controllers;
 
+
+
 use Dingo\Api\Routing\ControllerTrait;
+
 
 
 class ApiController extends BaseController {

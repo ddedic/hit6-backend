@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 use API;
 
-use League\Fractal;
-
 class ShopsController extends ApiController {
 
 
@@ -33,16 +31,9 @@ class ShopsController extends ApiController {
 
     public function index()
     {
-
-        $items = $this->shops->getModel()->paginate(1);
-        $item = $this->shops->getModel()->find(1);
+        $items = $this->shops->paginate();
 
         return API::response()->withCollection($items, $this->shops->getTransformer());
-        //return API::response()->withItem($item, $this->shops->getTransformer());
-
-
-
-
     }
 
 }

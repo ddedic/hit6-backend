@@ -13,4 +13,8 @@ interface ShopInterface {
 
     public function getShops();
 
+    public function getTransformer();
+
+    public function paginate($onlyActive = true);
+
 } 

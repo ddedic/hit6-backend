@@ -12,16 +12,33 @@ namespace Ddedic\Hit6\Shops\Transformers;
 use Ddedic\Hit6\Shops\Models\Shop;
 use League\Fractal\TransformerAbstract;
 
+use Ddedic\Hit6\Cities\Transformers\CityTransformer;
+
+
 class ShopTransformer extends TransformerAbstract {
+
+
+    protected $availableIncludes = [
+        'city'
+    ];
+
+
 
     public function transform(Shop $shop)
     {
         return [
             'id' => (int) $shop->id,
-            'name' => $shop->name,
-            'active' => (bool) $shop->active
+            'name' => $shop->name
+            //'active' => (bool) $shop->active
         ];
     }
 
+
+    public function includeCity(Shop $shop)
+    {
+        $city = $shop->city;
+
+        return $this->item($city, new CityTransformer, 'city');
+    }
 
 } 
