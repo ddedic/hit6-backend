@@ -22,13 +22,18 @@ class ShopTransformer extends TransformerAbstract {
         'city'
     ];
 
-
+    /*
+    protected $defaultIncludes = [
+        ''
+    ];
+    */
 
     public function transform(Shop $shop)
     {
         return [
             'id' => (int) $shop->id,
-            'name' => $shop->name
+            'name' => $shop->name,
+            'link' => route('api.shops.show', $shop->id)
             //'active' => (bool) $shop->active
         ];
     }

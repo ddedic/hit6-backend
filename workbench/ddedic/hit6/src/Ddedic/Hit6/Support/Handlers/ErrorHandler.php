@@ -7,6 +7,24 @@
  */
 
 
+App::error(function(Illuminate\Session\TokenMismatchException $exception, $code)
+{
+    $errors = [
+        '_token' => [
+            'Token tricking is very bad!'
+        ]
+    ];
+
+    /**
+     * Generate a new token for more security
+     */
+    Session::regenerateToken();
+
+
+    //return Redirect::back()->withInput(Input::except('_token'))->withErrors($errors);
+    return Response::json(['error' => $errors, 'code' => '500']);
+});
+
 
 
 
@@ -21,7 +39,6 @@ App::error(function(Exception $exception, $code)
         //return Response::view('errors.403', array(), 403);
 
         case 404:
-            //return return Response::make('Hey, what do you think you are doing!?', 401);
             return Response::json(['error' => 'Not Found', 'code' => '404']);
 
         // case 500:

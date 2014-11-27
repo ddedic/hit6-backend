@@ -22,4 +22,9 @@ class City extends BaseModel
     }
 
 
+    public function activeShops()
+    {
+        return $this->hasMany('Ddedic\Hit6\Shops\Models\Shop')->where(['active' => '1']);
+    }
+
 }

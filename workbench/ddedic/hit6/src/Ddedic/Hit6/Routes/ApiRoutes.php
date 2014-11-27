@@ -78,7 +78,7 @@ Route::group(['prefix' => 'test'], function () {
 
 
 // API
-Route::api(['prefix' => 'api', 'version' => 'v1', 'protected' => false], function()
+Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'protected' => false], function()
 {
 
 
@@ -103,7 +103,7 @@ Route::api(['prefix' => 'api', 'version' => 'v1', 'protected' => false], functio
     Route::group(['prefix' => 'shops'], function () {
 
         Route::get('/', array('uses' => 'Ddedic\Hit6\Controllers\Api\ShopsController@index', 'as' => 'api.shops.index'));
-        //Route::get('/{shop}', array('uses' => 'Ddedic\Hit6\Controllers\Api\EventsController@index', 'as' => 'api.events.shop'))->where('shop', '[0-9]+');
+        Route::get('/{shop}', array('uses' => 'Ddedic\Hit6\Controllers\Api\ShopsController@show', 'as' => 'api.shops.show'))->where('shop', '[0-9]+');
 
 
     });

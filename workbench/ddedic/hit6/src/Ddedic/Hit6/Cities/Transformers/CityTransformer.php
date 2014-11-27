@@ -34,8 +34,7 @@ class CityTransformer extends TransformerAbstract {
 
     public function includeShops(City $city)
     {
-        $shops = $city->shops;
-        return $this->collection($shops, new ShopTransformer, 'shops');
+        return $this->collection($city->activeShops, new ShopTransformer, 'shops');
     }
 
 

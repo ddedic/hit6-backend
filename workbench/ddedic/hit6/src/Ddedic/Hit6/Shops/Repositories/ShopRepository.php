@@ -38,10 +38,15 @@ class ShopRepository extends BaseRepository implements ShopInterface, Transforma
         return $result = $onlyActive ? $this->model->where(['active' => '1'])->paginate($this->perPage) : $this->model->paginate($this->perPage);
     }
 
+    public function find($id, $onlyActive  = true)
+    {
+        return $result = $onlyActive ? $this->model->where(['active' => '1'])->find($id) : $this->model->find($id);
+    }
+
 
     public function getTransformer()
     {
-        return new ShopTransformer();
+        return new ShopTransformer;
     }
 
 } 

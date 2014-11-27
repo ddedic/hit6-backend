@@ -17,4 +17,6 @@ interface ShopInterface {
 
     public function paginate($onlyActive = true);
 
+    public function find($id, $active = true);
+
 } 
