@@ -8,12 +8,12 @@
 
 namespace Ddedic\Hit6\Controllers\Api;
 
-use Ddedic\Hit6\Support\Controllers\ApiController;
+use Ddedic\Hit6\Support\Controllers\BaseApiController;
 use Ddedic\Hit6\Shops\Interfaces\ShopInterface;
 
 use API;
 
-class ShopsController extends ApiController {
+class ShopsController extends BaseApiController {
 
 
     protected $shops;
@@ -32,11 +32,17 @@ class ShopsController extends ApiController {
      */
     public function index()
     {
-        $items = $this->shops->paginate();
+        $items = $this->shops->all();
 
-        return API::response()->withCollection($items, $this->shops->getTransformer());
+        return $this->response->withCollection($items, $this->shops->getTransformer());
     }
 
+    public function paginate()
+    {
+        $items = $this->shops->paginate();
+
+        return $this->response->paginator($items, $this->shops->getTransformer());
+    }
 
 
     public function show($id)
@@ -45,14 +51,12 @@ class ShopsController extends ApiController {
 
         if ($shop){
 
-            return API::response()->withItem($shop, $this->shops->getTransformer());
+            return $this->response->withItem($shop, $this->shops->getTransformer());
 
         } else {
 
-            return API::response()->errorNotFound();
+            return $this->response->errorNotFound();
         }
-
-
 
     }
 

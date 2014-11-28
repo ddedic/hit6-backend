@@ -33,7 +33,11 @@ class ShopTransformer extends TransformerAbstract {
         return [
             'id' => (int) $shop->id,
             'name' => $shop->name,
-            'link' => route('api.shops.show', $shop->id)
+            'link' => [
+                'absolute'  =>  route('api.shops.show', $shop->id),
+                'relative'  =>  route('api.shops.show', $shop->id, false)
+            ]
+
             //'active' => (bool) $shop->active
         ];
     }

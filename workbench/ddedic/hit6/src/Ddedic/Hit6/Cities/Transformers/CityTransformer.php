@@ -26,8 +26,12 @@ class CityTransformer extends TransformerAbstract {
     {
         return [
             'id' => (int) $city->id,
-            'name' => $city->name
+            'name' => $city->name,
             //'active' => (bool) $city->active
+            'link' => [
+                'absolute'  =>  route('api.cities.show', $city->id),
+                'relative'  =>  route('api.cities.show', $city->id, false)
+            ]
         ];
     }
 

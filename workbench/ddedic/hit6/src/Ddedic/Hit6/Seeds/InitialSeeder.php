@@ -31,6 +31,12 @@ class InitialSeeder extends Seeder {
                 'active'            => 1,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s')
+            ),
+            array(
+                'name'              => 'Mostar',
+                'active'            => 1,
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s')
             )
         );
         DB::table('cities')->insert($data);

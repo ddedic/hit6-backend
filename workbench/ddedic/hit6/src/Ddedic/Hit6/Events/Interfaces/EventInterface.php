@@ -13,4 +13,13 @@ interface EventInterface {
 
     public function getEvents();
 
+    public function getItemTransformer();
+
+    public function getCollectionTransformer();
+
+    public function all();
+
+    public function paginate();
+
+    public function find($id);
 } 

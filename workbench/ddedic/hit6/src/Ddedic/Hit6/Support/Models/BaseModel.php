@@ -20,4 +20,9 @@ abstract class BaseModel extends Model{
     protected $fillable = [];
 
 
+
+
+
+
+
 } 

@@ -39,14 +39,21 @@ class CityRepository extends BaseRepository implements CityInterface, Transforma
         return $this->model->select(['*'])->get();
     }
 
+    public function find($id, $onlyActive  = true)
+    {
+        return $result = $onlyActive ? $this->model->where(['active' => '1'])->find($id) : $this->model->find($id);
+    }
+
+
+    public function all($onlyActive = true)
+    {
+        return $result = $onlyActive ? $this->model->where(['active' => '1'])->get() : $this->model->all();
+    }
+
+
     public function paginate($onlyActive = true)
     {
         return $result = $onlyActive ? $this->model->where(['active' => '1'])->paginate($this->perPage) : $this->model->paginate($this->perPage);
     }
-
-
-
-
-
 
 } 

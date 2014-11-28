@@ -26,12 +26,20 @@ class ShopRepository extends BaseRepository implements ShopInterface, Transforma
         $this->perPage = 25;
     }
 
+    public function getTransformer()
+    {
+        return new ShopTransformer;
+    }
 
     public function getShops()
     {
         return $this->model->select(['*'])->get();
     }
 
+    public function all($onlyActive = true)
+    {
+        return $result = $onlyActive ? $this->model->where(['active' => '1'])->get() : $this->model->all();
+    }
 
     public function paginate($onlyActive = true)
     {
@@ -44,9 +52,6 @@ class ShopRepository extends BaseRepository implements ShopInterface, Transforma
     }
 
 
-    public function getTransformer()
-    {
-        return new ShopTransformer;
-    }
+
 
 } 

@@ -15,7 +15,11 @@ interface CityInterface {
 
     public function getTransformer();
 
+    public function all($onlyActive = true);
+
     public function paginate($onlyActive = true);
+
+    public function find($id, $active = true);
 
 
 } 

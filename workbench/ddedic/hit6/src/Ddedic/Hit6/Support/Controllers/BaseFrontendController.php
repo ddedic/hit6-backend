@@ -9,7 +9,7 @@
 namespace Ddedic\Hit6\Support\Controllers;
 
 
-class BackendController extends BaseController {
+class BaseFrontendController extends BaseController {
 
     //
 

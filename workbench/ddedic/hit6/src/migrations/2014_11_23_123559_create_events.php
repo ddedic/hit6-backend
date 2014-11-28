@@ -17,14 +17,16 @@ class CreateEvents extends Migration {
 			$table->increments('id');
             $table->timestamps();
 
-			$table->string('day');
+            $table->string('year');
+            $table->string('month');
 			$table->string('week');
+            $table->string('day');
 
             $table->integer('shop_id');
 			$table->integer('event_raw');
 
-			$table->string('combined', 1000);
-			$table->string('sorted', 1000);
+			$table->text('combined');
+			$table->text('sorted');
 
             $table->dateTime('started_at');
             $table->tinyInteger('finished')->default(0);
