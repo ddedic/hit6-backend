@@ -33,7 +33,9 @@ class EventsTransformer extends TransformerAbstract {
         return [
             'id' => (int) $event->id,
             'datetime' => '',
-            'winning_bets' => 'win',
+            'pay_in' =>  767,
+            'pay_out' =>  211,
+            'balance' => 556,
 
             'link' => [
                 'absolute'  =>  route('api.events.show', $event->id),

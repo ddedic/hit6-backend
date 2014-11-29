@@ -8,7 +8,6 @@
 
 namespace Ddedic\Hit6\Controllers\Api;
 
-use Ddedic\Hit6\Balls\Models\Ball;
 use Ddedic\Hit6\Support\Controllers\BaseApiController;
 use Ddedic\Hit6\Events\Interfaces\EventInterface;
 use Ddedic\Hit6\Shops\Interfaces\ShopInterface;
@@ -90,8 +89,6 @@ class EventsController extends BaseApiController {
         // Merge all
         $data = array_merge($request, $arrayBalls);
 
-
-        //return $data;
 
         $event->fill($data);
 

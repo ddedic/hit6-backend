@@ -85,6 +85,15 @@ class InitialSeeder extends Seeder {
     private function seedBalls()
     {
 
+        // svaki 7 broj od 1. = crveni  (1, 8, 15, 22, 29 ... )
+        // svaki 7 broj od 2. = zuti
+        // svaki 7 broj od 3. = plavi
+        // svaki 7 broj od 4. = zuckasto narandzasta
+        // svaki 7 broj od 5. = zelen
+        // svaki 7 broj od 6. = rozi
+        // svaki 7 broj od 7. = ljubicasta
+        
+
         $data = array();
 
         for ($i=0; $i < 49; $i++) {
