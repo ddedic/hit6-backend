@@ -125,9 +125,6 @@ return array(
         // Local
         //'Barryvdh\Debugbar\ServiceProvider',
 
-        // Technabit
-        //'Technabit\Core\CoreServiceProvider',
-
         // Ddedic
         'Ddedic\Hit6\Hit6ServiceProvider',
 	),
