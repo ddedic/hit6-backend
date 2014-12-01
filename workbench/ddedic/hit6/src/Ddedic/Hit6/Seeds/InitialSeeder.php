@@ -92,7 +92,7 @@ class InitialSeeder extends Seeder {
         // svaki 7 broj od 5. = zelen
         // svaki 7 broj od 6. = rozi
         // svaki 7 broj od 7. = ljubicasta
-        
+
 
         $data = array();
 

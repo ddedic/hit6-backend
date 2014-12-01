@@ -78,7 +78,7 @@ Route::group(['prefix' => 'test'], function () {
 
 
 // API
-Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'protected' => false], function()
+Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'protected' => false, 'namespace' => 'Ddedic\Hit6\Controllers\Api'], function()
 {
     // BASE
     Route::get('/', function () {
@@ -89,9 +89,9 @@ Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'pr
     // CITIES
     Route::group(['prefix' => 'cities'], function () {
 
-        Route::get('/', array('uses' => 'Ddedic\Hit6\Controllers\Api\CitiesController@index', 'as' => 'api.cities.index'));
-        Route::get('paginate', array('uses' => 'Ddedic\Hit6\Controllers\Api\CitiesController@paginate', 'as' => 'api.cities.paginate'));
-        Route::get('/{city}', array('uses' => 'Ddedic\Hit6\Controllers\Api\CitiesController@show', 'as' => 'api.cities.show'))->where('city', '[0-9]+');
+        Route::get('/', array('uses' => 'CitiesController@index', 'as' => 'api.cities.index'));
+        Route::get('paginate', array('uses' => 'CitiesController@paginate', 'as' => 'api.cities.paginate'));
+        Route::get('/{city}', array('uses' => 'CitiesController@show', 'as' => 'api.cities.show'))->where('city', '[0-9]+');
 
 
     });
@@ -100,9 +100,9 @@ Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'pr
     // SHOPS
     Route::group(['prefix' => 'shops'], function () {
 
-        Route::get('/', array('uses' => 'Ddedic\Hit6\Controllers\Api\ShopsController@index', 'as' => 'api.shops.index'));
-        Route::get('paginate', array('uses' => 'Ddedic\Hit6\Controllers\Api\ShopsController@paginate', 'as' => 'api.shops.paginate'));
-        Route::get('/{shop}', array('uses' => 'Ddedic\Hit6\Controllers\Api\ShopsController@show', 'as' => 'api.shops.show'))->where('shop', '[0-9]+');
+        Route::get('/', array('uses' => 'ShopsController@index', 'as' => 'api.shops.index'));
+        Route::get('paginate', array('uses' => 'ShopsController@paginate', 'as' => 'api.shops.paginate'));
+        Route::get('/{shop}', array('uses' => 'ShopsController@show', 'as' => 'api.shops.show'))->where('shop', '[0-9]+');
 
     });
 
@@ -110,11 +110,11 @@ Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'pr
     // EVENTS
     Route::group(['prefix' => 'events'], function () {
 
-        Route::get('/', array('uses' => 'Ddedic\Hit6\Controllers\Api\EventsController@index', 'as' => 'api.events.index'));
-        Route::get('all', array('uses' => 'Ddedic\Hit6\Controllers\Api\EventsController@all', 'as' => 'api.events.paginate'));
-        Route::get('/{event}', array('uses' => 'Ddedic\Hit6\Controllers\Api\EventsController@show', 'as' => 'api.events.show'))->where('event', '[0-9]+');
+        Route::get('/', array('uses' => 'EventsController@index', 'as' => 'api.events.index'));
+        Route::get('all', array('uses' => 'EventsController@all', 'as' => 'api.events.paginate'));
+        Route::get('/{event}', array('uses' => 'EventsController@show', 'as' => 'api.events.show'))->where('event', '[0-9]+');
 
-        Route::get('create', array('uses' => 'Ddedic\Hit6\Controllers\Api\EventsController@create', 'as' => 'api.events.create'));
+        Route::get('create', array('uses' => 'EventsController@create', 'as' => 'api.events.create'));
 
 
 

@@ -1,0 +1,14 @@
+- bank has many shops
+- shop belongs to bank
+- player has many bets {seed: player[id=1, name=anonymous]}
+- bet belongs to player
+
+
+
+
+
+====
+
+90 sec 	= Ball drawing
+20 sec 	= Results
+150 sec = Pause between Events
