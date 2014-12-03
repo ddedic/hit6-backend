@@ -124,6 +124,8 @@ return array(
 
         // Local
         //'Barryvdh\Debugbar\ServiceProvider',
+         'Barryvdh\Cors\CorsServiceProvider',
+
 
         // Ddedic
         'Ddedic\Hit6\Hit6ServiceProvider',

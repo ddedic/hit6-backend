@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"vlucas/phpdotenv": "~1.0",
-        "barryvdh/laravel-debugbar": "~1.7"
+        "barryvdh/laravel-debugbar": "~1.7",
+		"barryvdh/laravel-cors": "0.2.x"
     },
 	"require-dev": {
         "barryvdh/laravel-ide-helper": "~1.11",

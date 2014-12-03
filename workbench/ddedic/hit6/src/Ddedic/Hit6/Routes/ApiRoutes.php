@@ -78,7 +78,7 @@ Route::group(['prefix' => 'test'], function () {
 
 
 // API
-Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'protected' => false, 'namespace' => 'Ddedic\Hit6\Controllers\Api'], function()
+Route::api(['prefix' => '', 'domain' => 'api.hit6.dev', 'version' => 'v1', 'protected' => false, 'namespace' => 'Ddedic\Hit6\Controllers\Api'], function()
 {
     // BASE
     Route::get('/', function () {
@@ -111,7 +111,7 @@ Route::api(['prefix' => '', 'domain' => 'api.boiler.dev', 'version' => 'v1', 'pr
     Route::group(['prefix' => 'events'], function () {
 
         Route::get('/', array('uses' => 'EventsController@index', 'as' => 'api.events.index'));
-        Route::get('all', array('uses' => 'EventsController@all', 'as' => 'api.events.paginate'));
+        Route::get('all', array('uses' => 'EventsController@all', 'as' => 'api.events.all'));
         Route::get('/{event}', array('uses' => 'EventsController@show', 'as' => 'api.events.show'))->where('event', '[0-9]+');
 
         Route::get('create', array('uses' => 'EventsController@create', 'as' => 'api.events.create'));
